@@ -1,0 +1,59 @@
+<view class="mian">
+  <!-- 公共头部 -->
+  <MyTitle></MyTitle>
+  <!-- 首页导航 -->
+  <!-- http://mock-api.com/mnEe4VnJ.mock/navList -->
+  <view class="nav_wrap">
+    <!-- 微信自带的滚动区域的组件 -->
+    <scroll-view class="nav" scroll-x="{{true}}">
+      <!-- bindtap 小程序自带的点击事件 -->
+      <view bindtap="activeNav" data-index="{{index}}"
+       class="nav-item {{index === navCurrentIndex ? 'active' : '' }}"
+       wx:for="{{navList}}" wx:key="index">
+        {{item.text}}
+      </view>
+    </scroll-view>
+  </view>
+  <!-- 轮播图 -->
+  <!-- http://mock-api.com/mnEe4VnJ.mock/swiperList -->
+  <view class="slides">
+    <swiper autoplay indicator-dots circular indicator-color="#fff" indicator-active-color="pink">
+      <swiper-item wx:for="{{swiperList}}" wx:key="key">
+       <navigator>
+         <image class="" src="{{item.imgSrc}}" mode="widthFix"></image>
+       </navigator>
+      </swiper-item>
+    </swiper>
+  </view>
+  <!-- 视频列表 -->
+  <!-- http://mock-api.com/mnEe4VnJ.mock/videoList -->
+  <view class="video_wrap" hover-class="none">
+    <navigator url="../detail/detail?id={{item.id}}" class="video_item" wx:for="{{videoList}}" wx:key="index">
+      <!--图片容器 -->
+      <view class="video_img">
+        <!-- 图片 -->
+        <image mode="widthFix" class="" src="{{item.imgSrc}}">      
+        </image>
+        <!-- 评论 -->
+        <view class="video_info">
+          <!-- 播放量 -->
+          <view class="play_count_wrap">
+            <!-- 播放量图标 -->
+            <text class="fa fa-play-circle-o" ></text>
+            <!-- 播放量数值 -->
+            <text class="play_count">{{item.playCount}}</text>
+          </view>
+          <!-- 评论量 -->
+          <view class="comment_count_wrap">
+            <!-- 评论量图标 -->
+            <text class="fa fa-commenting-o"></text>
+            <!-- 评论量数值 -->
+            <text class="comment_count">{{item.commentCount}}</text>
+          </view>
+        </view>
+      </view>
+      <!-- 标题 -->
+      <view class="video_title">{{item.desc}}</view>
+    </navigator>
+  </view>
+</view>

@@ -1,0 +1,84 @@
+page {
+  color: #666;
+}
+
+.nav_wrap {}
+
+/* 导航部分 */
+.nav {
+  white-space: nowrap;
+  padding: 5rpx 0;
+}
+
+.nav-item {
+  padding: 20rpx 45rpx;
+  font-size: 30rpx;
+  display: inline-block;
+}
+
+.nav-item.active {
+  border-bottom: 5rpx solid #ec2a2a;
+}
+
+/* 轮播图部分 */
+.slides{}
+.slides swiper {
+  height: 220rpx;
+}
+
+.slides navigator {
+  width: 100%;
+  height: 100%;
+}
+
+.slides image {
+  width: 100%;
+  height: 100%;
+}
+
+
+/* 视频列表部分 */
+.video_wrap {
+  display: flex;
+  /* flex折叠重要 */
+  flex-wrap: wrap;
+  justify-content: space-between;
+  padding: 5rpx;
+}
+
+.video_item {
+  width: 48%;
+  margin-bottom: 20rpx;
+}
+
+.video_img {
+  position: relative;
+}
+
+.video_img image{
+  width: 100%;
+}
+
+.video_img .video_info {
+  position: absolute;
+  bottom: 10rpx;
+  left: 0;
+  /* 给盒子宽度，否则justify-content无法生效 */
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+  font-size: 30rpx;
+  color: #fff;
+}
+
+/* 这个样式重要！ */
+.video_item .video_title {
+  font-size: 28rpx;
+  display: -webkit-box;
+  white-space: normal;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  word-wrap: break-word;
+}
